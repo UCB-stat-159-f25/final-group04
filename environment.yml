@@ -1,0 +1,15 @@
+name: final_env
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy=1.26.*
+  - matplotlib=3.8.*
+  - seaborn
+  - scikit-learn
+  - ipykernel
+  - jupyterlab
