@@ -13,3 +13,5 @@ dependencies:
   - scikit-learn
   - ipykernel
   - jupyterlab
+  - scipy
+  - pytest
