@@ -9,3 +9,12 @@ In our final project, we analyzed a house prices dataset that is publicly availa
 # Repository Contents
 
 Our repository contains the following:
+
+- Part1-EDA/: This folder contains our initial exploratory data analysis steps.
+- Part2-Prediction/: This folder contains our prediction process that followed after the EDA.
+- pdf_builds/: This folder contains pdf files of our analysis notebooks.
+- src/: This folder contains the functions we made to aid our analysis.
+- tests/: This folder contains tests to test our functions.
+- environment.yml: This is an environment file with all of the required packages for our project.
+- main.ipnyb: This notebook contains an overview of our project.
+- Makefile: This is a Makefile containing env and all targets. The env target makes or updates the environment and the all target runs all of the notebooks.
