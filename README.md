@@ -10,7 +10,7 @@ In our final project, we analyzed a house prices dataset that is publicly availa
 
 Our repository contains the following:
 
-- Part1-EDA/: This folder contains our initial exploratory data analysis steps.
+- Part1-EDA/: This folder contains our initial exploratory data analysis steps and the data used in this project.
 - Part2-Prediction/: This folder contains our prediction process that followed after the EDA.
 - pdf_builds/: This folder contains pdf files of our analysis notebooks.
 - src/: This folder contains the functions we made to aid our analysis.
