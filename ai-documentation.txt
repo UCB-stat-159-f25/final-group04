@@ -1,0 +1,5 @@
+While running pytest -q for test_ames_cleaning.py, I encountered a ModuleNotFoundError indicating that Python could not locate the src module. I consulted ChatGPT to help diagnose the issue.
+
+The root cause was that Python only searches for importable modules in directories listed in sys.path, and the project’s src/ directory was not included in that search path when pytest started. As a result, imports such as from src.ames_cleaning import ... failed during test collection.
+
+Based on this explanation, I added a conftest.py file under the tests/ directory to explicitly insert the project root into sys.path before tests are collected. This ensures that the src/ package is discoverable during testing. After making this change, pytest was able to successfully import the cleaning functions and run the tests.
