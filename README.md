@@ -23,18 +23,20 @@ All of the figures are saved into separate folders within the `Part1-EDA` and `P
 
 # Testing
 
-To run the tests, execute the following command in the terminal from the root directory of the project:
+**To run the tests, execute the following command in the terminal from the root directory of the project:**
 
 ```bash
 pytest tests/
+```
 
-# How to Install Environment 
+# How to Install Environment
 
-To install the environment run the following in the terminal: 
+**To install the environment run the following in the terminal:** 
 
 ```bash
 conda env create -f environment.yml
 conda activate final_env
+```
 
 # LICENSE
 
