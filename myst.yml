@@ -6,7 +6,7 @@ project:
   github: https://github.com/UCB-stat-159-f25/final-group04
   toc:
     - file: README.md
-    - file: report.md
+    - file: main.ipynb
     - file: project-description.md
     - file: Part1-EDA/EDA.ipynb
     - file: Part2-Prediction/classification.ipynb
