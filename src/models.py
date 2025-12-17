@@ -1,6 +1,20 @@
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
+
 def _eval_model_core(name, pipe, x_train, y_train, x_valid, y_valid, class_names):
+    """
+    This function trains a classification model. It then evaluates it on a
+    validation set and prints the standard classification metrics. Lastly,
+    it returns the accuracy and confusion matrix.
+
+    Parameters
+    ----------
+    name: String label for the model.
+    pipe: Scikit-learn pipeline.
+    x_train, y_train: Training data and labels.
+    x_valid, y_valid: Validation data and labels.
+    class_names : List of class labels.
+    """
     pipe.fit(x_train, y_train)
     preds = pipe.predict(x_valid)
 

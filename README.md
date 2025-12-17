@@ -40,4 +40,4 @@ conda activate final_env
 
 # LICENSE
 
-This project is licenses under the BSD 3-Clause License. 
+This project is licensed under the BSD 3-Clause License. 
