@@ -2,7 +2,8 @@
 title: House Prices Dataset Analysis
 subtitle: Stat 159 Final Project (Group 4)
 authors:
-  - Group 4: Kate Chung, Elise Yi Gao, Omair Gill, Yvonne Ye
+  - Group 4
+  - Kate Chung, Elise Yi Gao, Omair Gill, Yvonne Ye
 exports:
   - format: pdf
     output: pdf_builds/final-report.pdf
@@ -10,17 +11,17 @@ exports:
 
 ## Abstract
 
-We analyze the Ames, Iowa house prices dataset (via Kaggle) and build predictive models for sale price using regression-based methods. Our workflow is organized into two stages. First, we conduct exploratory data analysis to understand feature distributions, missingness patterns, and relationships between predictors and sale price. Second, we build and evaluate predictive models, with an emphasis on reproducibility and clear model comparison using a held-out test set. Overall, our results show that a relatively small set of structural and quality-related features explain a substantial portion of variation in sale price, and that regularized regression can improve generalization when many correlated predictors are present.
+We analyze the Ames, Iowa house prices dataset (via Kaggle) and build predictive models for sale price using regression based methods. Our workflow is organized into two stages. First, we conduct exploratory data analysis to understand feature distributions, missingness patterns, and relationships between predictors and sale price. Second, we build and evaluate predictive models, with an emphasis on reproducibility and clear model comparison using a held out test set. Overall, our results show that a relatively small set of structural and quality related features explain a substantial portion of variation in sale price, and that regularized regression can improve generalization when many correlated predictors are present.
 
 ## 1. Introduction
 
-Accurate home price prediction is useful for homeowners, buyers, and policymakers because it summarizes how property characteristics translate into market valuation. The Ames housing dataset is a standard benchmark for regression problems because it includes many interpretable predictors and represents common challenges found in real-world data, such as skewed variables, missing values, and correlated features.
+Accurate home price prediction is useful for homeowners, buyers, and policymakers because it summarizes how property characteristics translate into market valuation. The Ames housing dataset is a standard benchmark for regression problems because it includes many interpretable predictors and represents common challenges found in real world data, such as skewed variables, missing values, and correlated features.
 
 Our goals are:
 1. Describe the dataset and key patterns uncovered during EDA.
 2. Build regression models to predict sale price.
-3. Compare models on a held-out test set using consistent evaluation metrics.
-4. Package our work so it can be run end-to-end (environment, functions, tests, and notebooks).
+3. Compare models on a held out test set using consistent evaluation metrics.
+4. Package our work so it can be run end to end (environment, functions, tests, and notebooks).
 
 ## 2. Data
 
@@ -31,20 +32,13 @@ The dataset contains observations of houses in Ames, Iowa, with a response varia
 
 In our repository, the analysis is organized as:
 - Part 1 (EDA): `Part1-EDA/EDA.ipynb`
-- Part 2 (Prediction): `Part2-Prediction/classification.ipynb` (or your modeling notebook name)
+- Part 2 (Prediction): `Part2-Prediction/classification.ipynb`
 
 ## 3. Exploratory Data Analysis
 
 ### 3.1 Distribution of sale prices
 
-We begin by examining the distribution of sale price. Housing prices are typically right-skewed, and in many regression settings a log transform helps stabilize variance and improve linear model fit. We compare modeling on raw sale price versus log-transformed sale price (if applicable) and carry forward the representation that yields better calibration and residual behavior.
-
-**Figure 1.** Distribution of sale price (and optionally log sale price).  
-```{figure} Part1-EDA/Graph/price_hist.png
-:name: fig-price-dist
-:width: 80%
-
-Distribution of sale price (and optionally log sale price).
+We begin by examining the distribution of sale price. Housing prices are typically right skewed, and in many regression settings a log transform helps stabilize variance and improve linear model fit. We compare modeling on raw sale price versus log transformed sale price and carry forward the representation that yields better calibration and residual behavior.
 
 ### 3.2 Missingness and data quality checks
 
@@ -54,15 +48,9 @@ We check for missingness across predictors, identify variables with substantial 
 
 We also verify basic data integrity (ranges, impossible values, duplicates where relevant).
 
-**Table 1.** Missingness summary (top variables).  
-[INSERT TABLE FROM EDA]
-
 ### 3.3 Feature relationships and collinearity
 
-We explore correlations among numeric predictors and their relationship with sale price. Common high-impact predictors include living area, overall quality, and garage capacity, while neighborhood-related predictors often capture location effects. We also look for multicollinearity among size-related variables; this informs whether regularization is likely to help.
-
-**Figure 2.** Correlation heatmap or selected scatterplots.  
-[INSERT FIGURE FROM EDA]
+We explore correlations among numeric predictors and their relationship with sale price. Common high impact predictors include living area, overall quality, and garage capacity, while neighborhood related predictors often capture location effects. We also look for multicollinearity among size related variables; this informs whether regularization is likely to help.
 
 ### 3.4 Key takeaways from EDA
 
@@ -72,15 +60,12 @@ From EDA, we identify a small set of predictors that appear strongly associated 
 
 ### 4.1 Train/test setup and evaluation metrics
 
-We train models on the provided training split and evaluate on the held-out test split. For model comparison, we use consistent metrics such as:
+We train models on the provided training split and evaluate on the held out test split. For model comparison, we use consistent metrics such as:
 - RMSE (root mean squared error),
 - MAE (mean absolute error), and
 - \(R^2\) on the test set.
 
-If we train on log sale price, we evaluate both in log space and in original price units (after back-transform), noting that back-transforming introduces bias unless corrected.
-
-**Table 2.** Model comparison metrics on test set.  
-[INSERT METRICS TABLE FROM PART 2]
+If we train on log sale price, we evaluate both in log space and in original price units (after back transform), noting that back transforming introduces bias unless corrected.
 
 ### 4.2 Baseline model
 
@@ -91,7 +76,7 @@ We begin with a baseline linear regression using a core set of predictors chosen
 We apply preprocessing steps consistently across models:
 - separate pipelines for numeric and categorical features,
 - scaling for numeric features when needed (especially for regularized regression),
-- one-hot encoding for categorical variables,
+- one hot encoding for categorical variables,
 - imputation for missing values.
 
 We implement reusable preprocessing and modeling functions in `src/` and validate them with unit tests in `tests/`.
@@ -103,7 +88,7 @@ To address multicollinearity and reduce variance, we consider regularized regres
 - Lasso regression (L1 penalty), or
 - Elastic Net (combined penalties).
 
-We select hyperparameters using cross-validation on the training set, then evaluate the final tuned model on the test set.
+We select hyperparameters using cross validation on the training set, then evaluate the final tuned model on the test set.
 
 ### 4.5 Model selection criteria
 
@@ -113,10 +98,7 @@ We select a final model based on test performance and stability. When performanc
 
 ### 5.1 Predictive performance
 
-Overall, the baseline linear regression performs reasonably, but regularization and a stronger preprocessing pipeline can improve test performance, particularly when the feature set includes many correlated predictors and one-hot encoded categories.
-
-**Table 2** summarizes the test performance across models.  
-[INSERT TABLE FROM PART 2]
+Overall, the baseline linear regression performs reasonably, but regularization and a stronger preprocessing pipeline can improve test performance, particularly when the feature set includes many correlated predictors and one hot encoded categories.
 
 ### 5.2 Interpretability
 
@@ -128,9 +110,6 @@ We inspect fitted coefficients (or feature importances for the models used) to i
 
 We interpret these results cautiously, since coefficients reflect association rather than causal effects, and correlated predictors can shift coefficient magnitudes.
 
-**Figure 3.** Top coefficients or effects (final model).  
-[INSERT FIGURE FROM PART 2]
-
 ### 5.3 Error analysis
 
 We analyze where the model makes larger errors. Common patterns include:
@@ -138,10 +117,7 @@ We analyze where the model makes larger errors. Common patterns include:
 - systematic underprediction or overprediction in certain neighborhoods,
 - sensitivity to outliers.
 
-We include residual plots and predicted-versus-actual plots to visualize fit.
-
-**Figure 4.** Residual plot and predicted vs actual.  
-[INSERT FIGURES]
+We include residual plots and predicted versus actual plots to visualize fit.
 
 ## 6. Discussion
 
@@ -157,10 +133,10 @@ Limitations include:
 - performance sensitivity at the high end of the price distribution.
 
 Future work could include:
-- trying non-linear models (random forests, gradient boosting) for potentially better accuracy,
+- trying nonlinear models (random forests, gradient boosting) for potentially better accuracy,
 - adding interaction terms for key predictors,
 - using more robust methods for outliers,
-- calibration checks after back-transforming from log scale (if used).
+- calibration checks after back transforming from log scale (if used).
 
 ## 8. Reproducibility
 
