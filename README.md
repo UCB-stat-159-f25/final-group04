@@ -2,6 +2,8 @@
 
 # House Prices Dataset Analysis (Group 4 Final Project)
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group04/main?labpath=Part1-EDA/EDA.ipynb)
+
 # Project Description
 
 In our final project, we analyzed a house prices dataset that is publicly available on Kaggle which can be found using this link: [Housing Prices Dataset] (https://www.kaggle.com/datasets/lespin/house-prices-dataset). This dataset contains housing price data from Ames, Iowa. The dataset has already been cleaned, and has been separated into a training and testing set, making it suitable for linear regression. We used linear regression techniques to predict housing price based on certain factors (more information about our process can be found in Part 1 and Part 2 of this project).
