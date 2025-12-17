@@ -1,5 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/sSkqmNLf)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17959800.svg)](https://doi.org/10.5281/zenodo.17959800)
+
 # House Prices Dataset Analysis (Group 4 Final Project)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group04/main?labpath=Part1-EDA/EDA.ipynb)
