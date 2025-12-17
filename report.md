@@ -2,7 +2,7 @@
 title: House Prices Dataset Analysis
 subtitle: Stat 159 Final Project (Group 4)
 authors:
-  - Group 4
+  - Group 4: Kate Chung, Elise Yi Gao, Omair Gill, Yvonne Ye
 exports:
   - format: pdf
     output: pdf_builds/final-report.pdf
@@ -40,7 +40,11 @@ In our repository, the analysis is organized as:
 We begin by examining the distribution of sale price. Housing prices are typically right-skewed, and in many regression settings a log transform helps stabilize variance and improve linear model fit. We compare modeling on raw sale price versus log-transformed sale price (if applicable) and carry forward the representation that yields better calibration and residual behavior.
 
 **Figure 1.** Distribution of sale price (and optionally log sale price).  
-[INSERT FIGURE FROM EDA]
+```{figure} Part1-EDA/Graph/price_hist.png
+:name: fig-price-dist
+:width: 80%
+
+Distribution of sale price (and optionally log sale price).
 
 ### 3.2 Missingness and data quality checks
 
