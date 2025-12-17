@@ -2,12 +2,15 @@
 version: 1
 project:
   id: f88f636f-0b2e-4065-ae04-89fa4050b727
-  # title:
-  # description:
-  # keywords: []
-  # authors: []
+  title: House Prices Dataset Analysis (Group 4)
   github: https://github.com/UCB-stat-159-f25/final-group04
-  # To autogenerate a Table of Contents, run "myst init --write-toc"
+  toc:
+    - file: README.md
+    - file: report.md
+    - file: project-description.md
+    - file: Part1-EDA/EDA.ipynb
+    - file: Part2-Prediction/classification.ipynb
+
 site:
   template: book-theme
   # options:
